@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threshold Insights - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #F6F8FA;
+            color: #071A3D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* Data visualization inspired accent */
+        .accent-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2E8BFF, transparent);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .accent-line:nth-child(1) {
+            top: 20%;
+            left: 0;
+            width: 100%;
+            animation-delay: 0s;
+        }
+        
+        .accent-line:nth-child(2) {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            animation-delay: 1s;
+        }
+        
+        .accent-line:nth-child(3) {
+            top: 80%;
+            left: 0;
+            width: 100%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+        
+        /* Vertical accent bars */
+        .vertical-accent {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, transparent, #E37222, transparent);
+            opacity: 0.2;
+        }
+        
+        .vertical-accent:nth-child(4) {
+            left: 15%;
+        }
+        
+        .vertical-accent:nth-child(5) {
+            right: 15%;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(7, 26, 61, 0.08);
+            animation: fadeIn 1s ease-in;
+            margin: 20px auto;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-bottom: 50px;
+        }
+        
+        .coming-soon {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #E37222;
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .coming-soon::before,
+        .coming-soon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 2px;
+            background-color: #E37222;
+        }
+        
+        .coming-soon::before {
+            right: calc(100% + 15px);
+        }
+        
+        .coming-soon::after {
+            left: calc(100% + 15px);
+        }
+        
+        .tagline {
+            font-size: 26px;
+            line-height: 1.6;
+            margin-bottom: 45px;
+            color: #071A3D;
+            font-weight: 300;
+        }
+        
+        .tagline strong {
+            color: #005DAA;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .contact-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid #BFC1C3;
+            text-align: center;
+        }
+        
+        .contact-intro {
+            font-size: 18px;
+            color: #071A3D;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+        
+        .contact-label {
+            color: #005DAA;
+            font-weight: 600;
+        }
+        
+        .contact-value {
+            color: #071A3D;
+            font-weight: 400;
+        }
+        
+        .contact-value a {
+            color: #2E8BFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-value a:hover {
+            color: #005DAA;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+                margin: 10px auto;
+            }
+            
+            .logo {
+                max-width: 300px;
+                margin-bottom: 30px;
+            }
+            
+            .tagline {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            
+            .contact-section {
+                margin-top: 30px;
+                padding-top: 25px;
+            }
+            
+            .contact-intro {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+                font-size: 14px;
+            }
+            
+            .contact-label {
+                min-width: auto;
+                text-align: center;
+            }
+            
+            .coming-soon::before,
+            .coming-soon::after {
+                width: 25px;
+            }
+            
+            .vertical-accent {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accent-line"></div>
+    <div class="accent-line"></div>
+    <div class="accent-line"></div>
+    <div class="vertical-accent"></div>
+    <div class="vertical-accent"></div>
+    
+    <div class="container">
+        <img src="Threshold_insights_final_logo.png" alt="Threshold Insights" class="logo">
+        
+        <div class="coming-soon">Coming Soon</div>
+        
+        <p class="tagline">
+            <strong>Turning Data into Actionable Insights</strong>
+            Delivering technology-enabled market intelligence for biopharma decisions
+        </p>
+        
+        <div class="contact-section">
+            <p class="contact-intro">Get in touch to learn more</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="contact-label">Email:</span>
+                    <span class="contact-value">lavinia@thresholdpharma.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-label">LinkedIn:</span>
+                    <span class="contact-value"><a href="https://www.linkedin.com/company/threshold-insights/" target="_blank" rel="noopener noreferrer">Threshold Insights</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
