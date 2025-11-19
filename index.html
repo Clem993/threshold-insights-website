@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threshold Insights - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #F6F8FA;
+            color: #071A3D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Data visualization inspired accent */
+        .accent-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2E8BFF, transparent);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .accent-line:nth-child(1) {
+            top: 20%;
+            left: 0;
+            width: 100%;
+            animation-delay: 0s;
+        }
+        
+        .accent-line:nth-child(2) {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            animation-delay: 1s;
+        }
+        
+        .accent-line:nth-child(3) {
+            top: 80%;
+            left: 0;
+            width: 100%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+        
+        /* Vertical accent bars */
+        .vertical-accent {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, transparent, #E37222, transparent);
+            opacity: 0.2;
+        }
+        
+        .vertical-accent:nth-child(4) {
+            left: 15%;
+        }
+        
+        .vertical-accent:nth-child(5) {
+            right: 15%;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 900px;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(7, 26, 61, 0.08);
+            animation: fadeIn 1s ease-in;
+            margin: 20px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-bottom: 50px;
+        }
+        
+        .coming-soon {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #E37222;
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .coming-soon::before,
+        .coming-soon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 2px;
+            background-color: #E37222;
+        }
+        
+        .coming-soon::before {
+            right: calc(100% + 15px);
+        }
+        
+        .coming-soon::after {
+            left: calc(100% + 15px);
+        }
+        
+        .tagline {
+            font-size: 26px;
+            line-height: 1.6;
+            margin-bottom: 45px;
+            color: #071A3D;
+            font-weight: 300;
+        }
+        
+        .tagline strong {
+            color: #005DAA;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .cta {
+            display: inline-block;
+            padding: 16px 40px;
+            background-color: #071A3D;
+            color: #F6F8FA;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #071A3D;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(46, 139, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta:hover::before {
+            left: 100%;
+        }
+        
+        .cta:hover {
+            background-color: #2E8BFF;
+            border-color: #2E8BFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 139, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 10px;
+            }
+            
+            .logo {
+                max-width: 350px;
+                margin-bottom: 35px;
+            }
+            
+            .tagline {
+                font-size: 20px;
+                margin-bottom: 35px;
+            }
+            
+            .cta {
+                padding: 14px 30px;
+                font-size: 15px;
+            }
+            
+            .coming-soon::before,
+            .coming-soon::after {
+                width: 25px;
+            }
+            
+            .vertical-accent {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accent-line"></div>
+    <div class="accent-line"></div>
+    <div class="accent-line"></div>
+    <div class="vertical-accent"></div>
+    <div class="vertical-accent"></div>
+    
+    <div class="container">
+        <img src="Threshold_insights_final_logo.png" alt="Threshold Insights" class="logo">
+        
+        <div class="coming-soon">Coming Soon</div>
+        
+        <p class="tagline">
+            <strong>Turning Data into Actionable Insights</strong>
+            Delivering technology-enabled market intelligence for biopharma decisions
+        </p>
+        
+        <a href="mailto:lavinia@thresholdinsights.com" class="cta">Get in touch to learn more and book a consultation</a>
+    </div>
+</body>
+</html>
